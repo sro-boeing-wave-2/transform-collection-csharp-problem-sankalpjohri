@@ -6,11 +6,9 @@ namespace Transform
 {
     public static class Transform 
     {
-        public delegate int del(int num);
-
-        public static int[] Map(this int[] numbers, del operation)
+        public static TResult[] Map<TResult>(this int[] numbers, Func<int, TResult> operation)
         {
-            int[] result = new int[numbers.Length];
+            TResult[] result = new TResult[numbers.Length];
             for (int i = 0; i < numbers.Length; i++)
             {
                 result[i] = operation(numbers[i]);
